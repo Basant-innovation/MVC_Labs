@@ -1,0 +1,46 @@
+﻿
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>EmployeeForm</title>
+    <style>
+        div {
+            display:flex;
+            align-content:center;
+            border-color: mediumpurple;
+            font-family:Montserrat;
+            width:50%;
+            margin:10px;
+        }
+
+        label {
+            color: blueviolet;
+        }
+        input,textarea{
+            border:2px,solid,mediumpurple;
+            border-radius:10px;
+            height:30px;
+            outline:none;
+            margin-left:10px;
+        }
+
+    </style>
+</head>
+<body>
+    <div> 
+        <form method="post">
+            <label>Full Name </label>@Html.TextBox("name")<br />
+            <label>Email </label>@Html.TextBox("email")<br />
+            <Label>Please select your gender:</Label>
+            @Html.RadioButton("gender", "female")<label for="male">Female</label>
+            @Html.RadioButton("gender", "male")<label for="female">Male</label><br />
+            <label>Address </label>@Html.TextArea("address")<br />
+            <label>Salary </label>@Html.TextBox("salary")<br />
+            <input type="submit" value="Add"/>
+        </form>
+        
+    </div>
+</body>
+</html>

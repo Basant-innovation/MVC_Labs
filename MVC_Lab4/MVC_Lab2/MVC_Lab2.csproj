@@ -228,8 +228,8 @@
   <ItemGroup>
     <Content Include="Views\web.config" />
     <Content Include="packages.config" />
-    <Content Include="Views\Home\EmployeeForm.cshtml" />
-    <Content Include="Views\Home\FormResult.cshtml" />
+    <Content Include="Views\Employee\EmployeeForm.cshtml" />
+    <Content Include="Views\Employee\FormResult.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Scripts\jquery-3.0.0.slim.min.map" />
     <Content Include="Scripts\jquery-3.0.0.min.map" />

@@ -24,14 +24,14 @@
                         @Html.ActionLink("Contact us", "ContactUs", "Home", null, new { @class = "nav-item nav-link" })
                     </li>
                     <li class="nav-item">
-                        @Html.ActionLink("Employees", "EmployeeList", "Employee", null, new { @class = "nav-item nav-link" })
+                        @Html.ActionLink("Employees", "Index", "Employee", null, new { @class = "nav-item nav-link" })
                     </li>
                 </ul>
             </div>
         </nav>
-        <div class="container">
+        <div class="container m-5">
             <h1>Welcome</h1>
-            <a href="Home/EmployeeForm" type="button" class="btn btn-primary">Add Employee</a>
+            <a href="Employee/EmployeeForm" type="button" class="btn btn-primary">Add Employee</a>
         </div>
     </div>
 </body>

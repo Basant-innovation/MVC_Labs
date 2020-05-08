@@ -25,21 +25,21 @@
                         @Html.ActionLink("Contact us", "ContactUs", "Home", null, new { @class = "nav-item nav-link" })
                     </li>
                     <li class="nav-item">
-                        @Html.ActionLink("Employees", "EmployeeList", "Employee", null, new { @class = "nav-item nav-link" })
+                        @Html.ActionLink("Employees", "Index", "Employee", null, new { @class = "nav-item nav-link" })
                     </li>
                 </ul>
             </div>
         </nav>
 
-        <div class="container">
+        <div class="container m-5">
             <form method="post">
                 <div class="form-group">
                     <label for="exampleFormControlInput1">Full Name </label>
-                    @Html.TextBoxFor(e => e.Name, new { @class = "form-control" })@Html.ValidationMessageFor(e => e.Name)
+                    @Html.TextBoxFor(e => e.Name, new { @class = "form-control" })@Html.ValidationMessageFor(e => e.Name, null, new { @class = "text-danger" })
                 </div>
                 <div class="form-group">
                     <label for="exampleFormControlInput1">Email </label>
-                    @Html.TextBoxFor(e => e.Email, new { @class = "form-control" })@Html.ValidationMessageFor(e => e.Name)
+                    @Html.TextBoxFor(e => e.Email, new { @class = "form-control" })@Html.ValidationMessageFor(e => e.Email, null, new { @class = "text-danger" })
                 </div>
                 <div class="form-group">
                     <Label for="exampleFormControlInput1">Please select your gender:</Label>
@@ -57,7 +57,7 @@
                     <label for="exampleFormControlInput1">Address </label>@Html.TextAreaFor(e => e.Address, new { @class = "form-control" })@Html.ValidationMessageFor(e => e.Address)
                 </div>
                 <div class="form-group">
-                    <label for="exampleFormControlInput1">Salary </label>@Html.TextBoxFor(e => e.Salary, new { @class = "form-control" })@Html.ValidationMessageFor(e => e.Salary)
+                    <label for="exampleFormControlInput1">Salary </label>@Html.TextBoxFor(e => e.Salary, new { @class = "form-control" })@Html.ValidationMessageFor(e => e.Salary, null, new { @class = "text-danger" })
                 </div>
                 <input class="btn btn-primary" type="submit" value="Add" />
             </form>

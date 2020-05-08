@@ -22,25 +22,6 @@ namespace MVC_Lab2.Controllers
         }
 
 
-        [HttpGet]
-        public ViewResult EmployeeForm()
-        {
-            return View();
-        }
-
-        [HttpPost]
-        public ViewResult EmployeeForm(Employee employee)
-        {
-            if (ModelState.IsValid)
-            {
-                Employee emp = new Employee(employee.Name, employee.Gender, employee.Email, employee.Address, employee.Salary);
-                ModelContext ctx = new ModelContext();
-                ctx.Employees.Add(emp);
-                ctx.SaveChanges();
-
-                return View("FormResult");
-            }
-            return View();
-        }
+        
     }
 }

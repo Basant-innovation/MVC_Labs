@@ -1,0 +1,68 @@
+﻿
+@model Employee
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>EmployeeForm</title>
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+</head>
+<body>
+    <div>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            @Html.ActionLink("MVC LABs", "Index", "Home", null, new { @class = "navbar-brand" })
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                <ul class="navbar-nav">
+                    <li class="nav-item active">
+                        @Html.ActionLink("Home", "Index", "Home", null, new { @class = "nav-item nav-link" })
+                    </li>
+                    <li class="nav-item">
+                        @Html.ActionLink("Contact us", "ContactUs", "Home", null, new { @class = "nav-item nav-link" })
+                    </li>
+                    <li class="nav-item">
+                        @Html.ActionLink("Employees", "EmployeeList", "Employee", null, new { @class = "nav-item nav-link" })
+                    </li>
+                </ul>
+            </div>
+        </nav>
+
+        <div class="container">
+            <form method="post">
+                <div class="form-group">
+                    <label for="exampleFormControlInput1">Full Name </label>
+                    @Html.TextBoxFor(e => e.Name, new { @class = "form-control" })@Html.ValidationMessageFor(e => e.Name)
+                </div>
+                <div class="form-group">
+                    <label for="exampleFormControlInput1">Email </label>
+                    @Html.TextBoxFor(e => e.Email, new { @class = "form-control" })@Html.ValidationMessageFor(e => e.Name)
+                </div>
+                <div class="form-group">
+                    <Label for="exampleFormControlInput1">Please select your gender:</Label>
+                    <div class="form-check">
+                        @Html.RadioButtonFor(e => e.Gender, "Female", new { @class = "form-check-input" })@Html.ValidationMessageFor(e => e.Gender)
+                        <label class="form-check-label" for="exampleRadios1">Female</label>
+                    </div>
+                    <div class="form-check">
+                        @Html.RadioButtonFor(e => e.Gender, "Male", new { @class = "form-check-input" })@Html.ValidationMessageFor(e => e.Gender)
+                        <label for="exampleRadios1">Male</label>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="exampleFormControlInput1">Address </label>@Html.TextAreaFor(e => e.Address, new { @class = "form-control" })@Html.ValidationMessageFor(e => e.Address)
+                </div>
+                <div class="form-group">
+                    <label for="exampleFormControlInput1">Salary </label>@Html.TextBoxFor(e => e.Salary, new { @class = "form-control" })@Html.ValidationMessageFor(e => e.Salary)
+                </div>
+                <input class="btn btn-primary" type="submit" value="Add" />
+            </form>
+
+        </div>
+    </div>
+</body>
+</html>

@@ -36,5 +36,12 @@ namespace MVC_Lab2.Controllers
             }
             return View();
         }
+
+        //[ChildActionOnly]
+        //public PartialViewResult EmployeePartial(int id)
+        //{
+        //    Employee emp = context.Employees.Find(id);
+        //    return PartialView("_EmployeePartial", emp);
+        //}
     }
 }

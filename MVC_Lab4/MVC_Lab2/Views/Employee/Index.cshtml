@@ -43,18 +43,14 @@
                             <th>Gender</th>
                             <th>Address</th>
                             <th>Salary</th>
+                            <th>Actions</th>
                         </tr>
                     </thead>
                     <tbody>
                         @foreach (Employee emp in Model)
                         {
-                            <tr>
-                                <td>@emp.Name</td>
-                                <td>@emp.Email</td>
-                                <td>@emp.Gender</td>
-                                <td>@emp.Address</td>
-                                <td>@emp.Salary</td>
-                            </tr>
+                            @*@Html.Action("EmployeePartial", new { id = emp.Id })*@
+                            @Html.Partial("_EmployeePartial", emp);
                         }
                     </tbody>
                 </table>

@@ -1,0 +1,10 @@
+﻿@model Employee
+
+<tr>
+    <td>@Model.Name</td>
+    <td>@Model.Email</td>
+    <td>@Model.Gender</td>
+    <td>@Model.Address</td>
+    <td>@Model.Salary</td>
+    <td>@Html.ActionLink("Details", "Details", new { id = Model.Id }, new { @class = "btn btn-primary" })|@Html.ActionLink("Edit", "Edit", new { id = Model.Id }, new { @class = "btn btn-primary" })|@Html.ActionLink("Delete", "Delete", new { id = Model.Id }, new { @class = "btn btn-primary" })
+</tr>

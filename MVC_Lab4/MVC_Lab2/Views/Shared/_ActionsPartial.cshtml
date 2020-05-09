@@ -1,12 +1,8 @@
 ﻿@model int
-<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js" rel="stylesheet" />
+
 
 <div class="btn-group" role="group" aria-label="Basic example">
     <a href="@Url.Action("Details",new { id = Model })" class="btn btn-primary"><i class="far fa-eye"></i></a>
-    <a href="@Url.Action("Details",new { id = Model })" class="btn btn-primary"><i class="far fa-edit"></i></a>
-    <a href="@Url.Action("Details",new { id = Model })" class="btn btn-primary"><i class="far fa-delete"></i></a>
+    <a href="@Url.Action("Edit",new { id = Model })" class="btn btn-light"><i class="far fa-edit"></i></a>
+    <a href="@Url.Action("Delete",new { id = Model })" class="btn btn-danger"><i class="far fa-delete"></i></a>
 </div>
-
-@Html.ActionLink("Details", "Details", new { id = Model }, new { @class = "btn btn-primary" })|
-@Html.ActionLink("Edit", "Edit", new { id = Model}, new { @class = "btn btn-primary" })|
-@Html.ActionLink("Delete", "Delete", new { id = Model}, new { @class = "btn btn-primary" })

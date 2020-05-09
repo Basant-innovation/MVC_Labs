@@ -1,50 +1,18 @@
-﻿
-<!DOCTYPE html>
-
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>ContactUs</title>
-    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
-</head>
-<body>
-    <div>
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-            @Html.ActionLink("MVC LABs", "Index", "Home", null, new { @class = "navbar-brand" })
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-                <ul class="navbar-nav">
-                    <li class="nav-item ">
-                        @Html.ActionLink("Home", "Index", "Home", null, new { @class = "nav-item nav-link" })
-                    </li>
-                    <li class="nav-item active">
-                        @Html.ActionLink("Contact us", "Contact", "Home", null, new { @class = "nav-item nav-link" })
-                    </li>
-                    <li class="nav-item">
-                        @Html.ActionLink("Employees", "Index", "Employee", null, new { @class = "nav-item nav-link" })
-                    </li>
-                </ul>
-            </div>
-        </nav>
-
-        <div class="container m-5">
-            <form>
-                <div class="form-group">
-                    <label for="exampleFormControlInput1">Full Name</label>
-                    <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Basant Amr">
-                </div>
-                <div class="form-group">
-                    <label for="exampleFormControlInput1">Email address</label>
-                    <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
-                </div>
-                <div class="form-group">
-                    <label for="exampleFormControlTextarea1">Example textarea</label>
-                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="5"></textarea>
-                </div>
-            </form>
-        </div>
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Contact Us";
+}
+<form>
+    <div class="form-group">
+        <label for="exampleFormControlInput1">Full Name</label>
+        <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Basant Amr">
     </div>
-</body>
-</html>
+    <div class="form-group">
+        <label for="exampleFormControlInput1">Email address</label>
+        <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
+    </div>
+    <div class="form-group">
+        <label for="exampleFormControlTextarea1">Example textarea</label>
+        <textarea class="form-control" id="exampleFormControlTextarea1" rows="5"></textarea>
+    </div>
+</form>

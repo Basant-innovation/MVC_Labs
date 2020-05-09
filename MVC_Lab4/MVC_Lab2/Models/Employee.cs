@@ -18,6 +18,8 @@ namespace MVC_Lab2.Models
         public string Gender { get; set; }
         [Required]
         [StringLength(120)]
+        [EmailAddress]
+        [Url]
         public string Email { get; set; }
         public string Address { get; set; }
         public int Salary { get; set; }

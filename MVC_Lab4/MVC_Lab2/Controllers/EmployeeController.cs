@@ -1,4 +1,5 @@
 ﻿using MVC_Lab2.Models;
+using MVC_Lab2.ViewModals;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
@@ -14,7 +15,12 @@ namespace MVC_Lab2.Controllers
         // GET: Employee
         public ActionResult Index()
         {
-            return View(context.Employees.ToList());
+            ViewBag.Action = "Add";
+            EmployeeViewModal empViewModal = new EmployeeViewModal
+            {
+                Employees = context.Employees.ToList()
+        };
+            return View(empViewModal);
         }
 
         [HttpGet]
@@ -32,13 +38,26 @@ namespace MVC_Lab2.Controllers
             ViewBag.Action = "Add";
             if (ModelState.IsValid)
             {
-                Employee emp = new Employee(employee.Name, employee.Gender, employee.Email, employee.Address, employee.Salary);
-                ctx.Employees.Add(emp);
+                ctx.Employees.Add(employee);
                 ctx.SaveChanges();
 
                 return View("FormResult");
             }
             return View();
+        }
+
+        [HttpPost]
+        public ActionResult AddAjax(Employee employee)
+        {
+            ViewBag.Action = "Add";
+            if (ModelState.IsValid)
+            {
+                ctx.Employees.Add(employee);
+                ctx.SaveChanges();
+
+                return PartialView("_EmployeePartial", employee);
+            }
+            return Json(ModelState);
         }
 
         [HttpGet]

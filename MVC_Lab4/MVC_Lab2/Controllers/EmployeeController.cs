@@ -20,6 +20,7 @@ namespace MVC_Lab2.Controllers
         [HttpGet]
         public ViewResult EmployeeForm()
         {
+            ViewBag.Action = "Add";
             return View();
         }
 
@@ -28,6 +29,7 @@ namespace MVC_Lab2.Controllers
         [HttpPost]
         public ViewResult EmployeeForm(Employee employee)
         {
+            ViewBag.Action = "Add";
             if (ModelState.IsValid)
             {
                 Employee emp = new Employee(employee.Name, employee.Gender, employee.Email, employee.Address, employee.Salary);
@@ -42,6 +44,7 @@ namespace MVC_Lab2.Controllers
         [HttpGet]
         public ActionResult EmployeeEditForm(int id)
         {
+            ViewBag.Action = "Edit";
             Employee emp = ctx.Employees.Find(id);
             if(emp != null)
             {
@@ -53,6 +56,7 @@ namespace MVC_Lab2.Controllers
         [HttpPost]
         public ActionResult EmployeeEditForm(Employee emp)
         {
+            ViewBag.Action = "Edit";
             if (ModelState.IsValid)
             {
                 ctx.Employees.Attach(emp);
@@ -61,6 +65,19 @@ namespace MVC_Lab2.Controllers
                 return RedirectToAction(nameof(Index));
             }
             return View(emp);
+        }
+
+        [HttpGet]
+        public ActionResult Delete(int id)
+        {
+            Employee emp = ctx.Employees.Find(id);
+            if (emp != null)
+            {
+                ctx.Employees.Remove(emp);
+                ctx.SaveChanges();
+                return RedirectToAction(nameof(Index));
+            }
+            return HttpNotFound("Employee not found");
         }
         //[ChildActionOnly]
         //public PartialViewResult EmployeePartial(int id)

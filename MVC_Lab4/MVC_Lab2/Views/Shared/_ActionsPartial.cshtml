@@ -4,5 +4,7 @@
 <div class="btn-group" role="group" aria-label="Basic example">
     <a href="@Url.Action("Details",new { id = Model })" class="btn btn-primary"><i class="fa fa-eye"></i></a>
     <a href="@Url.Action("EmployeeEditForm",new { id = Model })" class="btn btn-light"><i class="fa fa-edit"></i></a>
-    <a href="@Url.Action("Delete",new { id = Model })" class="btn btn-danger"><i class="fa fa-trash"></i></a>
+    <button class="btn btn-danger" onclick="confirmDelete(@Model)">
+        <i class="fa fa-trash"></i>
+    </button>
 </div>

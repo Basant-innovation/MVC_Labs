@@ -34,3 +34,14 @@ else
     <div class="alert alert-info">There are No employees found</div>
 }
 
+
+@section Scripts{
+    <script>
+        function confirmDelete(id) {
+            let res = confirm("Are you sure?");
+            if (res) {
+                window.location.href = `/Employee/Delete/${id}`;
+            }
+        }
+    </script>
+ }

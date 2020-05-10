@@ -67,7 +67,7 @@ namespace MVC_Lab2.Controllers
             return View(emp);
         }
 
-        [HttpGet]
+        [HttpPost]
         public ActionResult Delete(int id)
         {
             Employee emp = ctx.Employees.Find(id);

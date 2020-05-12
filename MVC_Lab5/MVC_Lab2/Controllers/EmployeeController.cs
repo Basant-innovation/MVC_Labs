@@ -18,8 +18,9 @@ namespace MVC_Lab2.Controllers
             ViewBag.Action = "Add";
             EmployeeViewModal empViewModal = new EmployeeViewModal
             {
-                Employees = context.Employees.ToList()
-        };
+                Employees = context.Employees.ToList(),
+                Departments = context.Departments.ToList()
+            };
             return View(empViewModal);
         }
 
@@ -27,7 +28,11 @@ namespace MVC_Lab2.Controllers
         public ViewResult EmployeeForm()
         {
             ViewBag.Action = "Add";
-            return View();
+            EmployeeViewModal employeeVM = new EmployeeViewModal
+            {
+                Departments = ctx.Departments.ToList()
+            };
+            return View(employeeVM);
         }
 
         ModelContext ctx = new ModelContext();
@@ -43,7 +48,11 @@ namespace MVC_Lab2.Controllers
 
                 return View("FormResult");
             }
-            return View();
+            EmployeeViewModal employeeVM = new EmployeeViewModal
+            {
+                Departments = ctx.Departments.ToList()
+            };
+            return View("EmployeeForm", employeeVM);
         }
 
         [HttpPost]
@@ -65,25 +74,37 @@ namespace MVC_Lab2.Controllers
         {
             ViewBag.Action = "Edit";
             Employee emp = ctx.Employees.Find(id);
-            if(emp != null)
+            if (emp != null)
             {
-                return View("EmployeeForm", emp);
+                EmployeeViewModal employeeVM = new EmployeeViewModal
+                {
+                    Departments = ctx.Departments.ToList(),
+                    Employee = emp
+                };
+
+                return View("EmployeeForm", employeeVM);
             }
             return HttpNotFound("Employee not found");
         }
 
         [HttpPost]
-        public ActionResult EmployeeEditForm(Employee emp)
+        public ActionResult EmployeeEditForm(Employee employee)
         {
             ViewBag.Action = "Edit";
             if (ModelState.IsValid)
             {
-                ctx.Employees.Attach(emp);
-                ctx.Entry(emp).State = EntityState.Modified;
+                ctx.Employees.Attach(employee);
+                ctx.Entry(employee).State = EntityState.Modified;
                 ctx.SaveChanges();
                 return RedirectToAction(nameof(Index));
             }
-            return View(emp);
+            EmployeeViewModal employeeVM = new EmployeeViewModal
+            {
+                Departments = ctx.Departments.ToList(),
+                Employee = employee
+            };
+
+            return View("EmployeeForm", employeeVM);
         }
 
         [HttpPost]

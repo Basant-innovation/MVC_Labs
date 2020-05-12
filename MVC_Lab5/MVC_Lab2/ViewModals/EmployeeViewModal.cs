@@ -10,5 +10,6 @@ namespace MVC_Lab2.ViewModals
     {
         public List<Employee> Employees { get; set; }
         public Employee Employee { get; set; }
+        public List<Department> Departments { get; set; }
     }
 }

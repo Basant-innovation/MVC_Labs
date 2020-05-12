@@ -22,7 +22,7 @@ namespace MVC_Lab2.Models
         public string Email { get; set; }
         public string Address { get; set; }
         public int Salary { get; set; }
-
+        [Display(Name ="Department")]
         public int FK_DepartmentId { get; set; }
         [ForeignKey("FK_DepartmentId")]
         public virtual Department Department { get; set; }

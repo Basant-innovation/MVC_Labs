@@ -13,6 +13,6 @@ namespace MVC_Lab2.Models
         [MaxLength(50)]
         public string Name { get; set; }
 
-        public virtual List<Employee> Employesss { get; set; }
+        public virtual List<Employee> Employees { get; set; }
     }
 }
